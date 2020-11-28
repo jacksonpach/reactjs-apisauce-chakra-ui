@@ -7,6 +7,7 @@ export default function LoginForm() {
     const [isLoggedIn, setIsLoggedIn] = useState(false)
     const [email, setEmail] = useState('')
     const [password, setPassword] = useState('')
+    const [token, setToken] = useState('')
     const [err, setErr] = useState('')
     const [isLoading, setIsLoading] = useState(false)
 
@@ -18,6 +19,8 @@ export default function LoginForm() {
             if(response.ok) {
                 setIsLoggedIn(true)
                 setIsLoading(false)
+                setToken(response.data.token)
+                console.log(response)
             }
             else {
                 setErr('Invalid username or password');
@@ -42,7 +45,7 @@ export default function LoginForm() {
                     {
                         isLoggedIn ? (
                         <Box textAlign="center">
-                            <Text>{email} logged in!</Text>
+                            <Text>Your token: {token}</Text>
                             <Button
                                 variantcolor="orange"
                                 variant="outline"
