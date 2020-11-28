@@ -20,7 +20,6 @@ export default function LoginForm() {
                 setIsLoggedIn(true)
                 setIsLoading(false)
                 setToken(response.data.token)
-                console.log(response)
             }
             else {
                 setErr('Invalid username or password');
